@@ -63,7 +63,7 @@ public class MoveBall : L1SuperClass {
 	}
 
 	//Maintains state of game
-	void Update(){
+	void FixedUpdate(){
 		if(Input.GetKey (KeyCode.Space) && atStart){
 			StartGame ();
 		}
@@ -75,13 +75,14 @@ public class MoveBall : L1SuperClass {
 	void IncrementPoints(){
 		points++;
 		if(points % 5 == 0) {
-			xVel *= 1.1f;
+			xVel *= 1.3f;
 			if(yVel > 0){
 				yVel += .1f;
 			} else {
 				yVel -= .1f;
 			}
 			Debug.Log(xVel + ", " + yVel);
+			pyVel += 0.5f;
 		}
 	}
 }
