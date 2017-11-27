@@ -225,6 +225,7 @@
     <Compile Include="Assets\Scripts\L1\PlayerController.cs" />
     <Compile Include="Assets\Scripts\L1\ResetBall.cs" />
     <Compile Include="Assets\Scripts\L1\ScoreUpdater.cs" />
+    <Compile Include="Assets\Scripts\L2\BallBounce.cs" />
     <Compile Include="Assets\Scripts\L2\L2SuperClass.cs" />
     <Compile Include="Assets\Scripts\L2\MoveBallL2.cs" />
     <Compile Include="Assets\Scripts\L2\RotatePaddle.cs" />

@@ -11,6 +11,7 @@ public class MoveBall : L1SuperClass {
 	private bool atStart = true;
 	public Text start;
 	public Text resume;
+    public Text indicator;
 
 	//Initialise game upon loading the level
 	void Awake () {
@@ -18,6 +19,7 @@ public class MoveBall : L1SuperClass {
 		Time.timeScale = 0;
 		start.GetComponent<Text>();
 		resume.GetComponent<Text>();
+        indicator.GetComponent<Text>();
 		resume.enabled = false;
 	}
 
@@ -29,6 +31,7 @@ public class MoveBall : L1SuperClass {
 			atStart = false;
 			Time.timeScale = 1;
 			start.enabled = false;
+            indicator.enabled = false;
 		}
 	}
 
