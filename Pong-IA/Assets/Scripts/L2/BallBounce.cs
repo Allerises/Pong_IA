@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class BallBounce : L2SuperClass
 {
+    //3 vectors being used for calculating the cross-product.
 	public GameObject A, B, C;
-	//3 vectors being used for calculating the cross-product
+	
 	Vector3 normal;
 
 	// Update is called once per frame
@@ -27,13 +28,13 @@ public class BallBounce : L2SuperClass
 			 * Debug.Log ("Initial vel: " + other.GetComponent<Rigidbody> ().velocity);
 			 */
 
-			//performing the reflection off of the paddle plane
+			//performing the reflection off of the paddle plane.
 			other.GetComponent<Rigidbody> ().velocity = Vector3.Reflect (other.GetComponent<Rigidbody> ().velocity, normal);
 
 			//resultant velocity
 			Vector3 vVel = other.GetComponent<Rigidbody> ().velocity;
 
-			//readjusting the velocity of the reflected ball to be the same as the resultant
+			//readjusting the velocity of the reflected ball to be the same as the resultant.
 			other.GetComponent<Rigidbody> ().velocity = UnitVector (other.GetComponent<Rigidbody> ().velocity);
 
 			/* Debugging
