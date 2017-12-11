@@ -8,15 +8,11 @@ public class L2SuperClass : MonoBehaviour {
 	public static Vector3 PaddleRotation = Vector3.zero;
 
 	//Preset velocity for the ball allows for hardcoded computations.
-	public static float xVel = 2f, yVel = 2f;
+	public static float xVel = 2.5f, yVel = 2.5f;
 
 	//Unit vector for the ball's velocity at the start.
-	private static Vector3 unit = new Vector3 (xVel, yVel, Vector3.zero);
+	private static Vector3 unit = new Vector3 (xVel, yVel, 0f);
 
 	//Magnitude of the unit vector.
 	public static float uMag = Vector3.Magnitude (unit);
-
-	void Start(){
-		QualitySettings.antiAliasing = 1;
-	}
 }

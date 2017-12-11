@@ -14,9 +14,9 @@ public class RotatePaddle : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKey(KeyCode.LeftArrow)) {
-			rb.transform.RotateAround (Vector3.zero, Vector3.forward, 1.5f);
+			rb.transform.RotateAround (Vector3.zero, Vector3.forward, 1f);
 		}else if(Input.GetKey(KeyCode.RightArrow)){
-			rb.transform.RotateAround (Vector3.zero, Vector3.forward, -1.5f);
+			rb.transform.RotateAround (Vector3.zero, Vector3.forward, -1f);
 		}
 	}
 }
