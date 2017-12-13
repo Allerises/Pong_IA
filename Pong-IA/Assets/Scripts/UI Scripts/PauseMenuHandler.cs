@@ -4,17 +4,20 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class PauseMenuHandler : MonoBehaviour {
+public class PauseMenuHandler : MonoBehaviour
+{
 
 	public Canvas canvas;
 
-	void Awake() {
+	void Awake ()
+	{
 		canvas.GetComponent<Canvas> ();
 		canvas.enabled = false;
 	}
 
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+	{
 		if (Input.GetKeyDown (KeyCode.Escape)) {
 			canvas.enabled = !canvas.isActiveAndEnabled;
 		}
@@ -25,11 +28,13 @@ public class PauseMenuHandler : MonoBehaviour {
 		}
 	}
 
-	public void OnClickResume () {
+	public void OnClickResume ()
+	{
 		canvas.enabled = false;
 	}
 
-	public void OnClickQuit () {
+	public void OnClickQuit ()
+	{
 		SceneManager.LoadScene ("MainMenu");
 	}
 }
