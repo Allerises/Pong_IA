@@ -9,7 +9,7 @@ public class MainMenuScript : MonoBehaviour {
 
 	public Canvas MainMenu, LevelSelect;
 
-	public void Awake(){
+	public void Start(){
 		MainMenu.GetComponent<Canvas>();
 		LevelSelect.GetComponent<Canvas>();
 		LevelSelect.enabled = false;

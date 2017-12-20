@@ -6,7 +6,7 @@ public class L2SuperClass : MonoBehaviour
 {
 
     //Paddle Rotation
-    public static Vector3 PaddleRotation = Vector3.zero;
+    public static float PaddleRotation = 1f;
 
     //Preset velocity for the ball
     public static float xVel = 2.5f, yVel = 2.5f;
@@ -20,5 +20,15 @@ public class L2SuperClass : MonoBehaviour
     //Game control vars
     public static int points = 0;
     public static bool running = false;
-}
 
+    private void Awake()
+    {
+        PaddleRotation = 1f;
+        xVel = 2.5f;
+        yVel = 2.5f;
+        unit = new Vector3(xVel, yVel, 0f);
+        uMag = Vector3.Magnitude(unit);
+        points = 0;
+        running = false;
+    }
+}

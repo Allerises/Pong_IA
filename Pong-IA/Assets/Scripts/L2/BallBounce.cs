@@ -21,6 +21,9 @@ public class BallBounce : L2SuperClass
 	private void OnTriggerEnter (Collider other) //Performs the collisions using cross-product calculated above.
 	{
 		if (other.tag.Equals ("Ball")) {
+
+            IncrementPoints();
+
 			//Initial velocity
 			Vector3 uVel = other.GetComponent<Rigidbody> ().velocity;
 
@@ -57,4 +60,17 @@ public class BallBounce : L2SuperClass
 
 		return ret;
 	}
+
+    //Increments points
+    void IncrementPoints()
+    {
+        points++;
+        if (points % 5 == 0)
+        {
+            xVel *= 1.3f;
+            yVel *= 1.3f;
+            Debug.Log(xVel + ", " + yVel);
+            PaddleRotation += 0.1f;
+        }
+    }
 }

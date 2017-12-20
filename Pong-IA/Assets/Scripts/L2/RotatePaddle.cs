@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RotatePaddle : MonoBehaviour {
+public class RotatePaddle : L2SuperClass {
 
 	private Rigidbody rb;
 
@@ -14,9 +14,9 @@ public class RotatePaddle : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKey(KeyCode.LeftArrow)) {
-			rb.transform.RotateAround (Vector3.zero, Vector3.forward, 1f);
+			rb.transform.RotateAround (Vector3.zero, Vector3.forward, PaddleRotation);
 		}else if(Input.GetKey(KeyCode.RightArrow)){
-			rb.transform.RotateAround (Vector3.zero, Vector3.forward, -1f);
+			rb.transform.RotateAround (Vector3.zero, Vector3.forward, -PaddleRotation);
 		}
 	}
 }

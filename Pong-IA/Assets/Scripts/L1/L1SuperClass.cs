@@ -17,6 +17,16 @@ public class L1SuperClass : MonoBehaviour
     //Game control vars
     public static int points = 0;
     public static bool running = false;
+
+    private void Awake()
+    {
+        xVel = 5f;
+        yVel = 5f;
+        pyVel = 5f;
+        ballPosition = new Vector3(0, 0, 0);
+        points = 0;
+        running = false;
+}
 }
 
 

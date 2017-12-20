@@ -39,8 +39,9 @@ public class MoveBallL2 : L2SuperClass
     //Restart the game
     public void ResetGame()
     {
-        if (!atStart && !running && Input.GetKey(KeyCode.F))
+        if (!atStart && !running && Input.GetKey(KeyCode.Space))
         {
+            Debug.Log("Resetting");
             ball.velocity = new Vector3(xVel, yVel, 0);
             running = true;
             resume.enabled = false;
