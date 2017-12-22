@@ -9,14 +9,20 @@ public class RotatePaddle : L2SuperClass {
 	void Awake () {
 		rb = GetComponent<Rigidbody> ();
 		QualitySettings.antiAliasing = 1;
-	}
+    }
 	
 	// Update is called once per frame
-	void Update () {
-		if (Input.GetKey(KeyCode.LeftArrow)) {
-			rb.transform.RotateAround (Vector3.zero, Vector3.forward, PaddleRotation);
-		}else if(Input.GetKey(KeyCode.RightArrow)){
-			rb.transform.RotateAround (Vector3.zero, Vector3.forward, -PaddleRotation);
-		}
+	void FixedUpdate () {
+        if (canMove)
+        {
+            if (Input.GetKey(KeyCode.LeftArrow))
+            {
+                rb.transform.RotateAround(Vector3.zero, Vector3.forward, PaddleRotation);
+            }
+            else if (Input.GetKey(KeyCode.RightArrow))
+            {
+                rb.transform.RotateAround(Vector3.zero, Vector3.forward, -PaddleRotation);
+            }
+        }
 	}
 }

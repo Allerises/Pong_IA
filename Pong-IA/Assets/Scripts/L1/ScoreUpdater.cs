@@ -27,5 +27,9 @@ public class ScoreUpdater : L1SuperClass
         {
             textObject.text = "Score: " + points;
         }
+        else if (tag.Equals("Lives"))
+        {
+            textObject.text = "Lives: " + lives;
+        }
     }
 }

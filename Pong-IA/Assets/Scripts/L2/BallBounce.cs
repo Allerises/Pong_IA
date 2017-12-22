@@ -5,61 +5,66 @@ using UnityEngine;
 public class BallBounce : L2SuperClass
 {
     //3 vectors being used for calculating the cross-product.
-	public GameObject A, B, C;
-	
-	Vector3 normal;
+    public GameObject A, B, C;
 
-	// Update is called once per frame
-	void Update ()
-	{
-		//performing the cross-product to find the normal of the plane of the paddle.
-		Vector3 ba = A.transform.position - B.transform.position;
-		Vector3 bc = C.transform.position - B.transform.position;
-		normal = Vector3.Cross (ba, bc);
-	}
+    Vector3 normal;
 
-	private void OnTriggerEnter (Collider other) //Performs the collisions using cross-product calculated above.
-	{
-		if (other.tag.Equals ("Ball")) {
+    // Update is called once per frame
+    void Update()
+    {
+        //performing the cross-product to find the normal of the plane of the paddle.
+        Vector3 ba = A.transform.position - B.transform.position;
+        Vector3 bc = C.transform.position - B.transform.position;
+        normal = Vector3.Cross(ba, bc);
+    }
+
+    private void OnTriggerEnter(Collider other) //Performs the collisions using cross-product calculated above.
+    {
+        if (other.tag.Equals("Ball"))
+        {
 
             IncrementPoints();
+            Rigidbody ball = other.GetComponent<Rigidbody>();
 
-			//Initial velocity
-			Vector3 uVel = other.GetComponent<Rigidbody> ().velocity;
+            //Initial velocity
+            Vector3 uVel = ball.velocity;
 
-			/* Debugging
+            /* Debugging
 			 * Debug.Log ("Initial vel: " + other.GetComponent<Rigidbody> ().velocity);
 			 */
 
-			//performing the reflection off of the paddle plane.
-			other.GetComponent<Rigidbody> ().velocity = Vector3.Reflect (other.GetComponent<Rigidbody> ().velocity, normal);
+            //performing the reflection off of the paddle plane.
+            ball.velocity = Vector3.Reflect(ball.velocity, normal);
 
-			//resultant velocity
-			Vector3 vVel = other.GetComponent<Rigidbody> ().velocity;
+            //resultant velocity
+            Vector3 vVel = ball.velocity;
 
-			//readjusting the velocity of the reflected ball to be the same as the resultant.
-			other.GetComponent<Rigidbody> ().velocity = UnitVector (other.GetComponent<Rigidbody> ().velocity);
+            //readjusting the velocity of the reflected ball to be the same as the resultant.
+            ball.velocity = UnitVector(ball.velocity);
+            xVel = ball.velocity.x;
+            yVel = ball.velocity.y;
 
-			/* Debugging
+            /* Debugging
 			 * Debug.Log ("End vel: " + other.GetComponent<Rigidbody> ().velocity);
 			 * Debug.Log ("v Difference: " + (vVel - uVel));
 			 * Debug.Log ("V Ratio: " + (vVel.magnitude / uVel.magnitude));
 			 */
-		}
-	}
+        }
+    }
 
-	private Vector3 UnitVector (Vector3 endVel)
-	{
-		float endVelUnit = endVel.magnitude / uMag;
-		Vector3 ret = endVel / endVelUnit;
+    private Vector3 UnitVector(Vector3 endVel)
+    {
+        float uMag = Vector3.Magnitude(unit);
+        float endVelUnit = endVel.magnitude / uMag;
+        Vector3 ret = endVel / endVelUnit;
 
-		/* Debugging
+        /* Debugging
 		 * Debug.Log ("Unit vector magnitude: " + uMag);
 		 * Debug.Log ("Ball Magnitude: " + ret.magnitude);
 		 */
 
-		return ret;
-	}
+        return ret;
+    }
 
     //Increments points
     void IncrementPoints()
@@ -67,10 +72,9 @@ public class BallBounce : L2SuperClass
         points++;
         if (points % 5 == 0)
         {
-            xVel *= 1.3f;
-            yVel *= 1.3f;
-            Debug.Log(xVel + ", " + yVel);
-            PaddleRotation += 0.1f;
+            unit *= 1.15f;
+            Debug.Log(unit);
+            PaddleRotation *= 1.1f;
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MoveBall : L1SuperClass
 {
@@ -82,12 +83,28 @@ public class MoveBall : L1SuperClass
     //Maintains state of game
     void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.Space) && atStart)
+        if (points < 25 && lives > 0)
         {
-            StartGame();
+            if (Input.GetKey(KeyCode.Space) && atStart)
+            {
+                StartGame();
+            }
+            ResetGame();
+            ballPosition = rb.transform.position;
+
+            if (Input.GetKeyDown(KeyCode.Backslash))
+            {
+                IncrementPoints();
+            }
         }
-        ResetGame();
-        ballPosition = rb.transform.position;
+        else if (lives == 0)
+        {
+            SceneManager.LoadScene("LostScene");
+        }
+        else
+        {
+            SceneManager.LoadScene("WinScene");
+        }
     }
 
     //Increments points

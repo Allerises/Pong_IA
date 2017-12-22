@@ -14,9 +14,12 @@ public class ResetBallL2 : L2SuperClass {
 
     void OnTriggerExit(Collider other)
     {
+        xVel = other.attachedRigidbody.velocity.x;
+        yVel = other.attachedRigidbody.velocity.y;
         other.transform.position = new Vector3(0, 0, 0);
         other.attachedRigidbody.velocity = Vector3.zero;
         resume.enabled = true;
         running = false;
+        lives--;
     }
 }

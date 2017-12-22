@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MoveBallL2 : L2SuperClass
 {
@@ -33,25 +34,37 @@ public class MoveBallL2 : L2SuperClass
             Time.timeScale = 1;
             start.enabled = false;
             indicator.enabled = false;
+            canMove = true;
         }
     }
 
     //Restart the game
     public void ResetGame()
     {
-        if (!atStart && !running && Input.GetKey(KeyCode.Space))
+        if (points < 50 && lives > 0)
         {
-            Debug.Log("Resetting");
-            ball.velocity = new Vector3(xVel, yVel, 0);
-            running = true;
-            resume.enabled = false;
+            if (!atStart && !running && Input.GetKey(KeyCode.Space))
+            {
+                Debug.Log("Resetting");
+                ball.velocity = new Vector3(xVel, yVel, 0);
+                running = true;
+                resume.enabled = false;
+            }
+        }
+        else if(lives == 0)
+        {
+            SceneManager.LoadScene("LostScene");
+        }
+        else
+        {
+            SceneManager.LoadScene("WinScene");
         }
     }
 
     //Maintains state of game
     void Update()
     {
-		if (Input.GetKeyDown(KeyCode.Space) && atStart)
+        if (Input.GetKeyDown(KeyCode.Space) && atStart)
         {
             StartGame();
         }
