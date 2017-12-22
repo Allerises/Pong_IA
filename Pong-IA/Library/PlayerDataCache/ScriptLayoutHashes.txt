@@ -1,4 +1,4 @@
-WindowsStandalone
+OSXStandalone
 SceneListBegin?
 Assets/_Scenes/MainMenu.unity
 Assets/_Scenes/Level1.unity
@@ -126,6 +126,7 @@ e3c58f874196d470288b1e84941559d5 Assembly-CSharp.dll:.ResetBallL2
 e3c58f874196d470288b1e84941559d5 Assembly-CSharp.dll:.ResetBall
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Advertisements.dll:UnityEngine.Advertisements.CallbackExecutor
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Advertisements.dll:UnityEngine.Advertisements.Editor.Placeholder
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.ControlMenuScript
 0a43638ef597492baa9450911905ca77 Assembly-CSharp.dll:.WinLossScript
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.L1SuperClass
 fc1e0f4d8439d9928083474691511a13 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
@@ -159,4 +160,3 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 9de3a22eca9aefadba2d10d5987cefe3 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 eb5a4771e20bd174a1336a7f8c324929 Assembly-CSharp.dll:.MoveBallL2
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.ScoreUpdaterL2
-05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.ControlMenuScript
