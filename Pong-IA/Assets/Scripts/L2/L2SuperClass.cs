@@ -19,6 +19,7 @@ public class L2SuperClass : MonoBehaviour
     public static bool running = false;
     public static bool canMove = false;
     public static int lives = 3;
+    public static int maxPoints = 50;
 
     private void Start()
     {

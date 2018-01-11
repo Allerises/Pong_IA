@@ -41,7 +41,7 @@ public class MoveBallL2 : L2SuperClass
     //Restart the game
     public void ResetGame()
     {
-        if (points < 50 && lives > 0)
+        if (points < maxPoints && lives > 0)
         {
             if (!atStart && !running && Input.GetKey(KeyCode.Space))
             {

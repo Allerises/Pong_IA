@@ -18,6 +18,7 @@ public class L1SuperClass : MonoBehaviour
     public static int points = 0;
     public static bool running = false;
     public static int lives = 3;
+    public static int maxPoints = 25;
 
     private void Start()
     {
@@ -41,6 +42,7 @@ public class L1SuperClass : MonoBehaviour
         ballPosition = new Vector3(0, 0, 0);
         points = 0;
         running = false;
+        lives = 3;
     }
 }
 

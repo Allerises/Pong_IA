@@ -81,9 +81,9 @@ public class MoveBall : L1SuperClass
     }
 
     //Maintains state of game
-    void FixedUpdate()
+    void Update()
     {
-        if (points < 25 && lives > 0)
+        if (points < maxPoints && lives > 0)
         {
             if (Input.GetKey(KeyCode.Space) && atStart)
             {

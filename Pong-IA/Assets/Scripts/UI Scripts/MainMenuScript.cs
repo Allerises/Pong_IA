@@ -15,7 +15,7 @@ public class MainMenuScript : MonoBehaviour
         MainMenu.GetComponent<Canvas>();
         LevelSelect.GetComponent<Canvas>();
         LevelSelect.enabled = false;
-        Screen.SetResolution(1280, 720, true);
+        Screen.SetResolution(1280, 720, false);
     }
 
     public void Update()
