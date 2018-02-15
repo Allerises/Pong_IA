@@ -7,7 +7,7 @@ public class BallBounce : L2SuperClass
     //3 vectors being used for calculating the cross-product.
     public GameObject A, B, C;
 
-    Vector3 normal;
+    private Vector3 normal;
 
     // Update is called once per frame
     void Update()
@@ -18,7 +18,7 @@ public class BallBounce : L2SuperClass
         normal = Vector3.Cross(ba, bc);
     }
 
-    private void OnTriggerEnter(Collider other) //Performs the collisions using cross-product calculated above.
+    void OnTriggerEnter(Collider other) //Performs the collisions using cross-product calculated above.
     {
         if (other.tag.Equals("Ball"))
         {

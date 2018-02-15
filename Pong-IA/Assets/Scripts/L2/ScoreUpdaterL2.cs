@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class ScoreUpdaterL2 : L2SuperClass
 {
 
-    private Text textObject;
+    private Text update;
 
     void Awake()
     {
